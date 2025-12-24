@@ -20,8 +20,33 @@ def create_problem_directory(title):
 
         # Create README.md
         readme_path = os.path.join(title, "README.md")
+        problem_id = os.path.basename(title)
+        readme_content = f"""# [Problem Title]
+[Problem Name]
+
+## Source
+[Link](https://www.acmicpc.net/problem/{problem_id})
+
+## Description
+[Description]
+
+## Input
+
+[Input Description]
+
+```bash
+[Input Example]
+```
+
+## Output
+(Output format)
+[Output Description]
+```bash
+[Output Example]
+```
+"""
         with open(readme_path, "w") as f:
-            f.write(f"# {title}\n\n")
+            f.write(readme_content)
         print(f"File '{title}/README.md' created.")
 
     except FileExistsError:
